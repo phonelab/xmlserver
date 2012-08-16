@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <edu.buffalo.cse.phonelab.manifest.ManifestService>
+    <logTag>ManifestService</logTag>
+    <updateRate>30</updateRate>
+    <compareFiles>False</compareFiles>
+    <compareNodes>False</compareNodes>
+    <manifestURL>http://blue.cse.buffalo.edu/manifest/</manifestURL>
+  </edu.buffalo.cse.phonelab.manifest.ManifestService>
+  <edu.buffalo.cse.phonelab.launcher.LauncherService>
+    <logTag>LauncherService</logTag>
+    <checkInterval>30</checkInterval>
+    <runningServices>
+      <string>edu.buffalo.cse.phonelab.manifest.ManifestService</string>
+      <string>edu.buffalo.cse.phonelab.platform.PlatformService</string>
+    </runningServices>
+    <stoppedServices>
+      <string>edu.buffalo.cse.phonelab.Dummy.DummyService</string>
+    </stoppedServices>
+  </edu.buffalo.cse.phonelab.launcher.LauncherService>
+  <edu.buffalo.cse.phonelab.platform.PlatformService>
+    <logTag>PlatformService</logTag>
+    <failedRetryDelay>1200</failedRetryDelay>
+    <platforms>
+      <platformDescription fingerprint="Android/full_crespo4g/crespo4g:4.0.4/IMM76D/eng.challen.20120814.093729:userdebug/test-keys" url="http://blue.cse.buffalo.edu/platform/new.zip" filename="new.zip" size="1203404" goldenPlatform="True"/>
+    </platforms>
+  </edu.buffalo.cse.phonelab.platform.PlatformService>
+</manifest>
