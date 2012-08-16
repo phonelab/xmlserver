@@ -136,8 +136,6 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'xmlserver.manifest',       #manifest
-    #'django_dropbox', #dropbox storage engine for django
-    #'dropbox_testing', #dropbox testing
 )
 
 # A sample logging configuration. The only tangible logging
