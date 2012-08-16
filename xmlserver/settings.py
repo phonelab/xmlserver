@@ -2,14 +2,14 @@
 import os
 import django
  
+ENV = os.environ.get("ENV") or "development"
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 ## Note: These variables are overridden
 ## below if production and staging
-# Log Path
+# manifest Path
 RAW_STATICXML_ROOT = os.path.join(SITE_ROOT, 'manifest', 'staticxml')
-#RAW_DROPBOX_ROOT = os.path.join(SITE_ROOT, 'Dropbox', 'PhoneLab')
-RAW_DROPBOX_ROOT = os.path.join("/home/ec2-user", 'Dropbox', 'PhoneLab')
+RAW_DROPBOX_ROOT = os.path.join(SITE_ROOT, 'Dropbox', 'PhoneLab')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -167,4 +167,14 @@ LOGGING = {
 #DROPBOX_CONSUMER_SECRET = 'f0kt0utsr1x734l'
 #DROPBOX_ACCESS_TOKEN = '7t4tl07ebujxeie'
 #DROPBOX_ACCESS_TOKEN_SECRET = 'dhojfyjl1vfd1qb'
+
+if ENV == "production":
+    # TODO
+    # need to move all this stuff to S3
+    
+    # Dropbox Path
+    RAW_DROPBOX_ROOT = os.path.join("/home/ec2-user", 'Dropbox', 'PhoneLab')
+    # Add gunicorn
+    INSTALLED_APPS += ("gunicorn",)
+    
 
