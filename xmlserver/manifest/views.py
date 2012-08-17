@@ -10,7 +10,7 @@ def push_manifest(requset):
   pass
 
 def download_manifest(request, meid):
-  paths = [os.path.join(RAW_DROPBOX_ROOT, 'manifest.xml'), 
+  paths = [os.path.join(RAW_DROPBOX_ROOT, meid, 'manifest.xml'), 
           os.path.join(RAW_STATICXML_ROOT, meid, 'manifest.xml'),
           os.path.join(RAW_STATICXML_ROOT, 'default', 'manifest.xml')]
   for path in paths:
