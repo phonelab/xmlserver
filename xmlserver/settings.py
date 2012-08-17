@@ -10,6 +10,7 @@ SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 # manifest Path
 RAW_STATICXML_ROOT = os.path.join(SITE_ROOT, 'manifest', 'staticxml')
 RAW_DROPBOX_ROOT = os.path.join(SITE_ROOT, 'Dropbox', 'PhoneLab')
+RAW_HEARTBEAT_ROOT = os.path.join(SITE_ROOT, 'heartbeat')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -136,6 +137,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'xmlserver.manifest',       #manifest
+    'xmlserver.heartbeat',#Heartbeat
 )
 
 # A sample logging configuration. The only tangible logging
@@ -174,6 +176,8 @@ if ENV == "production":
     RAW_DROPBOX_ROOT = os.path.join("/home/ec2-user", 'Dropbox', 'PhoneLab')
     # Manifest Path
     RAW_STATICXML_ROOT = os.path.join("/mnt", 'manifest')
+    # HEARTBEAT MANIFEST
+    RAW_HEARTBEAT_ROOT = os.path.join("/mnt", 'heartbeat')
     # Add gunicorn
     INSTALLED_APPS += ("gunicorn",)
     DEBUG = False

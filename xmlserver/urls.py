@@ -5,7 +5,7 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('xmlserver',
     # Examples:
     # url(r'^$', 'xmlserver.views.home', name='home'),
     # url(r'^xmlserver/', include('xmlserver.foo.urls')),
@@ -21,12 +21,18 @@ urlpatterns = patterns('',
     # Push Manifest 
     # Accepts: {}
     # Response : {}
-    url(r'^device/$', 'xmlserver.manifest.views.push_manifest'),
+    url(r'^device/$', 'manifest.views.push_manifest'),
     
     #
     ## Manifest
     #
     # Download Manifest
-    url(r'^manifest/(?P<meid>[A-Z0-9]\w+)/$', 'xmlserver.manifest.views.download_manifest'),
+    url(r'^manifest/(?P<meid>[A-Z0-9]\w+)/$', 'manifest.views.download_manifest'),
+
+    #
+    ##Heartbeat
+    #
+    #Save the Manifest in the heartbeat message
+    url(r'^heartbeat/(?P<meid>[A-Z0-9]\w+)/$', 'heartbeat.views.heartbeat'),
 
 )
