@@ -172,6 +172,8 @@ if ENV == "production":
     
     # Dropbox Path
     RAW_DROPBOX_ROOT = os.path.join("/home/ec2-user", 'Dropbox', 'PhoneLab')
+    # Manifest Path
+    RAW_STATICXML_ROOT = os.path.join("/mnt, 'manifest')
     # Add gunicorn
     INSTALLED_APPS += ("gunicorn",)
     
