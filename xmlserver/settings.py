@@ -22,14 +22,14 @@ ADMINS = (
 MANAGERS = ADMINS
 
 #DATABASE_ENGINE = 'django.db.backends.postgresql_psycopg2'
-DATABASE_ENGINE = 'django.db.backends.mysql'
-DATABASE_NAME = 'xmlserver'
+#DATABASE_ENGINE = 'django.db.backends.mysql'
+#DATABASE_NAME = 'xmlserver'
 DATABASES = {
     'default': {
-        'ENGINE'  : DATABASE_ENGINE, # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME'    : DATABASE_NAME,                      # Or path to database file if using sqlite3.
-        'USER'    : 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'root',                  # Not used with sqlite3.
+        'ENGINE'  : '', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME'    : '',                      # Or path to database file if using sqlite3.
+        'USER'    : '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
         'HOST'    : '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT'    : '',                      # Set to empty string for default. Not used with sqlite3.
     }    
@@ -80,7 +80,7 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+#ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -98,7 +98,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ''
+#SECRET_KEY = ''
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -173,8 +173,10 @@ if ENV == "production":
     # Dropbox Path
     RAW_DROPBOX_ROOT = os.path.join("/home/ec2-user", 'Dropbox', 'PhoneLab')
     # Manifest Path
-    RAW_STATICXML_ROOT = os.path.join("/mnt, 'manifest')
+    RAW_STATICXML_ROOT = os.path.join("/mnt", 'manifest')
     # Add gunicorn
     INSTALLED_APPS += ("gunicorn",)
+    DEBUG = False
+    TEMPLATE_DEBUG = DEBUG
     
 
