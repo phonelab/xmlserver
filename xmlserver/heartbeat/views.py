@@ -23,15 +23,20 @@ def heartbeat(request, meid):
 		os.mkdir(path)
 		
 	filehandle = open(manifest_name, 'wb+')
-
-	for chunk in request.FILES['manifest'].chunks():
-		#write it out
-		filehandle.write(chunk)
+        
+        #
+        # stevko: receive a hearbeat not as a file but as a POST parameter
+        #
+        #for chunk in request.FILES['manifest'].chunks():
+	#	#write it out
+	#	filehandle.write(chunk)
+        filehandle.write(request.POST['heartbeat'])
 
 	#close filehandle
 	filehandle.close()
 
-	return HttpResponseRedirect("/")
+        #return HttpResponseRedirect("/")
+        return HttpResponse()
 		
 
 
