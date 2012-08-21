@@ -17,7 +17,7 @@ manifest - nameinpost
 @csrf_exempt
 def heartbeat(request, meid):
 
-	path = os.path.join(RAW_HEARTBEAT_ROOT, 'manifest', meid)
+	path = os.path.join(RAW_HEARTBEAT_ROOT, meid)
 	manifest_name = os.path.join(path, str(datetime.now())+'.xml')
 	if not os.path.isdir(path):
 		os.mkdir(path)
